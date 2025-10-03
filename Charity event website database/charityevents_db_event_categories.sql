@@ -37,7 +37,7 @@ CREATE TABLE `event_categories` (
 
 LOCK TABLES `event_categories` WRITE;
 /*!40000 ALTER TABLE `event_categories` DISABLE KEYS */;
-INSERT INTO `event_categories` VALUES (1,'Dinner party','Formal charity dinner and fundraising banquet'),(2,'Fun Run','Charity running, walking, or marathon events'),(3,'Auction','Online or live auction events'),(4,'Concert','Charity concerts and performances'),(5,'Workshop','Educational and interactive workshop'),(6,'Charity Sale Market','Charity Market and Fundraising Activities');
+INSERT INTO `event_categories` VALUES (1,'Dinner party','Formal charity dinner and fundraising banquet'),(2,'Fun Run','Charity running, walking, or marathon events'),(3,'Auction','Online or live auction events'),(4,'Concert','Charity concerts and performances'),(5,'Workshop','Educational and interactive workshop'),(6,'Charity Sale Market','Charity Market and Fundraising Activities'),(7,'Charity Bazaar','Sell second-hand/handmade items to raise funds, mainly for education and poverty alleviation'),(8,'Charity Run','Running-themed public welfare activity; donations are made based on participation mileage/number of people'),(9,'Charity Lecture','Invite experts to share public welfare knowledge; open an online donation channel simultaneously'),(10,'Material Donation','Collect clothes, books, stationery offline and donate them to disadvantaged groups'),(11,'Charity Exhibition','Display the achievements of public welfare projects to attract donations from enterprises/individuals');
 /*!40000 ALTER TABLE `event_categories` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-10-01 14:13:12
+-- Dump completed on 2025-10-02 17:21:23

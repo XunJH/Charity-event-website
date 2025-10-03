@@ -31,7 +31,7 @@ CREATE TABLE `charitable_organisations` (
   `website_url` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`organisation_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `charitable_organisations` (
 
 LOCK TABLES `charitable_organisations` WRITE;
 /*!40000 ALTER TABLE `charitable_organisations` DISABLE KEYS */;
-INSERT INTO `charitable_organisations` VALUES (1,'Red Cross Charitable Foundation','Commitment to medical charity organization','contact@redcross.org','123456789','https://www.redcross.org','2025-10-04 04:06:04'),(2,'Green Earth Environmental Protection Organization','A non-profit organization dedicated to environmental protection and sustainable development','info@greenearth.org','123478432','https://www.greenearth.org','2025-10-04 04:06:04'),(3,'Love Aid Association','Charitable organizations that provide assistance to the elderly and disadvantaged groups in society','support@loveaid.org','123467888','https://www.loveaid.org','2025-10-04 04:06:04');
+INSERT INTO `charitable_organisations` VALUES (1,'Red Cross Charitable Foundation','Commitment to medical charity organization','contact@redcross.org','123456789','https://www.redcross.org','2025-10-04 04:06:04'),(2,'Green Earth Environmental Protection Organization','A non-profit organization dedicated to environmental protection and sustainable development','info@greenearth.org','123478432','https://www.greenearth.org','2025-10-04 04:06:04'),(3,'Love Aid Association','Charitable organizations that provide assistance to the elderly and disadvantaged groups in society','support@loveaid.org','123467888','https://www.loveaid.org','2025-10-04 04:06:04'),(4,'China Children\'s Fund','National public welfare organization focusing on children\'s education and health; founded for 30 years, has helped over 1 million children','ccf@ccf.org.cn','010-12345678',NULL,'2025-10-02 09:11:19'),(5,'Urban Charity Alliance','Local public welfare organization focusing on urban stray animal rescue and community support, covering 20 first-tier cities','city-charity@example.com','021-87654321',NULL,'2025-10-02 09:11:19'),(6,'Green Environmental Fund','Focus on \"ecological environment protection\"; carry out public welfare activities such as afforestation and waste classification promotion, advocating sustainable development','green-fund@example.org','020-98765432',NULL,'2025-10-02 09:11:19'),(7,'Rural Education Association','Dedicated to improving rural education resources; donate teaching aids and train teachers for schools in remote areas, covering 500 rural schools','rural-edu@example.com','0731-23456789',NULL,'2025-10-02 09:11:19'),(8,'Elderly Care Charity Center','Focus on the quality of life of the elderly; provide free medical check-ups and community elderly care services, and regularly organize elderly cultural activities','elderly-care@example.com','022-34567890',NULL,'2025-10-02 09:11:19');
 /*!40000 ALTER TABLE `charitable_organisations` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-10-01 14:13:12
+-- Dump completed on 2025-10-02 17:21:23

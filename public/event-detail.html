@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱心慈善活动平台 - 活动详情</title>
+  <!-- 引入自己的个性化CSS -->
+  <link rel="stylesheet" href="./css/style.css">
+  <!-- 统一图标库 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+</head>
+<body class="page-loading">
+  <!-- 导航栏（id不可修改） -->
+  <div id="navbar"></div>
+
+  <!-- 1. 活动详情区（JS动态渲染，id不可修改） -->
+  <section class="event-detail-section">
+    <div class="detail-container container">
+      <!-- 错误提示容器（id不可修改） -->
+      <div id="error-msg" class="error-container"></div>
+
+      <!-- 加载中提示（初始显示） -->
+      <div id="loading-state" class="loading-state">
+        <i class="fa fa-spinner fa-spin"></i>
+        <p>正在加载活动详情...</p>
+      </div>
+
+      <!-- 详情内容（JS动态渲染，初始隐藏） -->
+      <div id="event-detail-content" class="event-content" style="display: none;">
+        <!-- 详情头部：图片+基本信息 -->
+        <div class="detail-header">
+          <div class="detail-img-wrapper">
+            <img id="detail-event-img" class="detail-img" alt="活动图片" src="">
+          </div>
+          <div class="detail-header-info">
+            <h1 id="detail-event-title" class="detail-title"></h1>
+            <div class="detail-meta">
+              <span class="meta-item"><i class="fa fa-tags"></i> <span id="detail-category"></span></span>
+              <span class="meta-item"><i class="fa fa-calendar"></i> <span id="detail-date"></span></span>
+              <span class="meta-item"><i class="fa fa-map-marker"></i> <span id="detail-l
