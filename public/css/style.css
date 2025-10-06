@@ -1,4 +1,4 @@
-/* ================================== 全局样式重置与基础设置 ================================== */
+/* ================================== 全局重置与基础设置 ================================== */
 * {
   margin: 0;
   padding: 0;
@@ -7,12 +7,11 @@
 }
 
 body {
-  background-color: #f9fafb; /* 浅灰背景，营造干净公益氛围 */
-  color: #333; /* 主文本色，确保可读性 */
+  background-color: #f9fafb;
+  color: #333;
   line-height: 1.6;
 }
 
-/* 容器类：统一页面宽度与居中 */
 .container {
   width: 90%;
   max-width: 1200px;
@@ -20,7 +19,6 @@ body {
   padding: 0 15px;
 }
 
-/* 按钮基础样式 */
 .btn {
   display: inline-block;
   padding: 10px 20px;
@@ -34,51 +32,38 @@ body {
   text-decoration: none;
 }
 
-/* 标题样式统一 */
 h1, h2, h3 {
-  color: #2c3e50; /* 深灰蓝标题色，凸显公益庄重感 */
+  color: #2c3e50;
   margin-bottom: 16px;
   font-weight: 600;
 }
 
-h1 {
-  font-size: 2.2rem;
-  line-height: 1.3;
+h1 { font-size: 2.2rem; line-height: 1.3; }
+h2 { 
+  font-size: 1.8rem; 
+  border-bottom: 2px solid #3498db; 
+  padding-bottom: 8px; 
+  display: inline-block; 
 }
+h3 { font-size: 1.3rem; color: #3498db; }
 
-h2 {
-  font-size: 1.8rem;
-  border-bottom: 2px solid #3498db; /* 蓝色下划线，强调章节 */
-  padding-bottom: 8px;
-  display: inline-block;
-}
+p { margin-bottom: 12px; }
 
-h3 {
-  font-size: 1.3rem;
-  color: #3498db; /* 蓝色小标题，引导视觉焦点 */
-}
-
-/* 段落样式 */
-p {
-  margin-bottom: 12px;
-}
-
-/* 图片自适应 */
 img {
   max-width: 100%;
   height: auto;
   border-radius: 4px;
-  object-fit: cover; /* 确保图片比例正常，不拉伸 */
+  object-fit: cover;
 }
 
 
 /* ================================== 导航栏样式 ================================== */
 .navbar {
-  background-color: #fff; /* 白色导航栏，干净简洁 */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 轻微阴影，增强层次感 */
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
-  z-index: 100; /* 确保导航栏在最上层，不被遮挡 */
+  z-index: 100;
 }
 
 .navbar-container {
@@ -88,23 +73,19 @@ img {
   padding: 15px 0;
 }
 
-/* 导航Logo */
 .navbar-logo {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #3498db; /* 蓝色Logo，呼应公益主题 */
+  color: #3498db;
   text-decoration: none;
 }
 
-/* 导航菜单 */
 .navbar-menu {
   display: flex;
   list-style: none;
 }
 
-.navbar-item {
-  margin-left: 30px;
-}
+.navbar-item { margin-left: 30px; }
 
 .navbar-link {
   color: #333;
@@ -114,52 +95,35 @@ img {
   transition: color 0.3s ease;
 }
 
-.navbar-link:hover {
-  color: #3498db; /*  hover时变蓝，增强交互反馈 */
-}
+.navbar-link:hover { color: #3498db; }
 
-/* 移动端导航（适配小屏幕） */
+/* 移动端适配 */
 @media (max-width: 768px) {
-  .navbar-container {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .navbar-menu {
-    width: 100%;
-    justify-content: center;
-  }
-  .navbar-item {
-    margin: 0 15px;
-  }
+  .navbar-container { flex-direction: column; gap: 10px; }
+  .navbar-menu { width: 100%; justify-content: center; }
+  .navbar-item { margin: 0 15px; }
 }
 
 
 /* ================================== 首页样式 ================================== */
-/* 英雄区（静态介绍） */
 .hero-section {
-  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); /* 蓝色渐变背景，凸显公益感 */
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
   color: #fff;
   padding: 60px 0;
   text-align: center;
   margin-bottom: 40px;
 }
 
-.hero-container h1 {
-  color: #fff; /* 白色标题，与渐变背景对比 */
-  margin-bottom: 20px;
-}
+.hero-container h1 { color: #fff; margin-bottom: 20px; }
 
 .mission-statement {
   font-size: 1.1rem;
   max-width: 800px;
   margin: 0 auto 25px;
-  opacity: 0.9; /* 轻微透明，避免文字过于刺眼 */
+  opacity: 0.9;
 }
 
-.contact-info {
-  font-size: 0.95rem;
-  opacity: 0.85;
-}
+.contact-info { font-size: 0.95rem; opacity: 0.85; }
 
 /* 活动列表区 */
 .events-section {
@@ -172,90 +136,57 @@ img {
   margin-bottom: 40px;
 }
 
-/* 活动卡片容器：网格布局，适配多屏幕 */
-.events-container {
+.events-container, #search-results {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 30px;
 }
 
-/* 活动卡片基础样式（首页+搜索页通用） */
+/* 活动卡片通用样式 */
 .event-card {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
-  overflow: hidden; /* 确保图片圆角生效 */
+  overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .event-card:hover {
-  transform: translateY(-5px); /*  hover时轻微上浮，增强交互 */
+  transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-/* 活动卡片图片（首页+搜索页通用） */
-.event-img,
-.event-card-img {
-  height: 200px; /* 固定图片高度，保持卡片整齐 */
+.event-img, .event-card-img {
+  height: 200px;
   width: 100%;
 }
 
-/* 活动卡片内容（首页专用） */
-.event-info {
-  padding: 20px;
-}
+.event-info, .event-card-content { padding: 20px; }
 
-/* 活动卡片内容（搜索页专用） */
-.event-card-content {
-  padding: 20px;
-}
-
-/* 活动元数据（首页专用） */
-.event-meta {
+.event-meta, .event-card-meta {
   font-size: 0.85rem;
-  color: #7f8c8d; /* 浅灰色元数据，不抢焦点 */
+  color: #7f8c8d;
   margin: 8px 0 15px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-/* 活动元数据（搜索页专用） */
-.event-card-meta {
-  font-size: 0.85rem;
-  color: #7f8c8d; /* 浅灰色元数据，不抢焦点 */
-  margin: 8px 0 15px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-/* 活动描述（首页专用） */
-.event-desc {
+.event-desc, .event-card-desc {
   color: #555;
   font-size: 0.95rem;
   margin-bottom: 15px;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* 限制2行文本，避免卡片高度不一 */
+  -webkit-line-clamp: 2; 
+  line-clamp: 2; 
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-/* 活动描述（搜索页专用） */
-.event-card-desc {
-  color: #555;
-  font-size: 0.95rem;
-  margin-bottom: 15px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* 限制2行文本，避免卡片高度不一 */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* 筹款进度条（首页专用） */
+/* 筹款进度条（首页） */
 .fundraiser-progress {
   height: 8px;
-  background-color: #ecf0f1; /* 浅灰背景 */
+  background-color: #ecf0f1;
   border-radius: 4px;
   margin-bottom: 10px;
   overflow: hidden;
@@ -263,7 +194,7 @@ img {
 
 .progress-bar {
   height: 100%;
-  background-color: #2ecc71; /* 绿色进度条，象征公益成果 */
+  background-color: #2ecc71;
   border-radius: 4px;
   transition: width 0.5s ease;
 }
@@ -276,47 +207,25 @@ img {
   margin-bottom: 15px;
 }
 
-/* 票价样式（首页专用） */
-.event-price {
+/* 票价样式 */
+.event-price, .event-card-price {
   font-size: 0.9rem;
-  color: #e74c3c; /* 红色票价，突出费用信息 */
+  color: #e74c3c;
   font-weight: 500;
   margin-bottom: 15px;
 }
 
-/* 票价样式（搜索页专用） */
-.event-card-price {
-  font-size: 0.9rem;
-  color: #e74c3c; /* 红色票价，突出费用信息 */
-  font-weight: 500;
-  margin-bottom: 15px;
-}
-
-/* 查看详情按钮（首页专用） */
-.view-detail-btn {
+/* 查看详情按钮 */
+.view-detail-btn, .btn-view-detail {
   background-color: #3498db;
   color: #fff;
   width: 100%;
 }
 
-.view-detail-btn:hover {
-  background-color: #2980b9; /*  hover时加深蓝色，增强反馈 */
-}
-
-/* 查看详情按钮（搜索页专用） */
-.btn-view-detail {
-  background-color: #3498db;
-  color: #fff;
-  width: 100%;
-}
-
-.btn-view-detail:hover {
-  background-color: #2980b9; /*  hover时加深蓝色，增强反馈 */
-}
+.view-detail-btn:hover, .btn-view-detail:hover { background-color: #2980b9; }
 
 
 /* ================================== 搜索页样式 ================================== */
-/* 搜索表单区 */
 .search-form-section {
   background-color: #fff;
   padding: 40px 0;
@@ -330,7 +239,6 @@ img {
   text-align: center;
 }
 
-/* 表单分组：垂直排列，增加间距 */
 .form-group {
   margin-bottom: 20px;
   text-align: left;
@@ -343,9 +251,7 @@ img {
   color: #555;
 }
 
-/* 表单输入框样式统一 */
-.form-group input,
-.form-group select {
+.form-group input, .form-group select {
   width: 100%;
   padding: 12px 15px;
   border: 1px solid #ddd;
@@ -354,45 +260,35 @@ img {
   transition: border-color 0.3s ease;
 }
 
-.form-group input:focus,
-.form-group select:focus {
+.form-group input:focus, .form-group select:focus {
   outline: none;
-  border-color: #3498db; /* 聚焦时蓝色边框，引导用户 */
+  border-color: #3498db;
 }
 
-/* 表单按钮区：横向排列 */
 .form-buttons {
   display: flex;
   gap: 15px;
   margin-top: 30px;
 }
 
-/* 搜索按钮：蓝色主按钮 */
 .search-btn {
   background-color: #3498db;
   color: #fff;
   flex: 1;
 }
 
-.search-btn:hover {
-  background-color: #2980b9;
-}
+.search-btn:hover { background-color: #2980b9; }
 
-/* 清除按钮：灰色次要按钮 */
 .clear-btn {
   background-color: #95a5a6;
   color: #fff;
   flex: 1;
 }
 
-.clear-btn:hover {
-  background-color: #7f8c8d;
-}
+.clear-btn:hover { background-color: #7f8c8d; }
 
 /* 搜索结果区 */
-.search-results-section {
-  padding: 20px 0 60px;
-}
+.search-results-section { padding: 20px 0 60px; }
 
 #result-count {
   text-align: center;
@@ -401,44 +297,41 @@ img {
   font-size: 0.95rem;
 }
 
-/* 搜索页活动卡片容器：网格布局（核心修复） */
-#search-results {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 自动适配列数 */
-  gap: 30px; /* 卡片间距，避免堆叠 */
-}
-
-/* 无结果/加载中提示 */
-.empty-state,
-.loading-state,
-.error-state {
+/* 状态提示（空数据/加载/错误） */
+.empty-state, .loading-state, .error-state {
   text-align: center;
   color: #7f8c8d;
   padding: 40px 0;
   font-size: 1rem;
 }
 
-.empty-state i,
-.loading-state i,
-.error-state i {
+.empty-state i, .loading-state i, .error-state i {
   font-size: 2.5rem;
   margin-bottom: 15px;
   display: block;
 }
 
-.error-state {
-  color: #e74c3c; /* 失败提示红色，警示用户 */
-}
+.error-state { color: #e74c3c; }
 
 
 /* ================================== 活动详情页样式 ================================== */
-/* 详情页容器：上下分区 */
-.event-detail-section {
-  padding: 40px 0 60px;
-}
+.event-detail-section { padding: 40px 0 60px; }
 
-/* 详情头部：图片+基本信息 */
-.event-detail-header {
+/* 页面状态控制：替代内联style，解决CSP问题 */
+.page-loading #loading-state { display: block; }
+.page-loading #event-detail-content { display: none; }
+.page-loading #error-msg { display: none; }
+
+.page-success #loading-state { display: none; }
+.page-success #event-detail-content { display: block; }
+.page-success #error-msg { display: none; }
+
+.page-error #loading-state { display: none; }
+.page-error #event-detail-content { display: none; }
+.page-error #error-msg { display: block; }
+
+/* 详情头部（与HTML新增结构匹配） */
+.detail-header {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: 30px;
@@ -449,19 +342,16 @@ img {
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* 详情页图片 */
-.event-detail-img {
+.detail-img {
   height: 350px;
   width: 100%;
 }
 
-/* 详情头部信息 */
-.event-detail-header-info {
+.detail-header-info {
   padding: 10px 0;
 }
 
-/* 详情页元数据：图标+文字组合（增强可读性） */
-.event-detail-meta {
+.detail-meta {
   margin: 15px 0 25px;
   display: flex;
   flex-wrap: wrap;
@@ -470,29 +360,49 @@ img {
   color: #555;
 }
 
-.event-detail-meta div {
+.detail-meta .meta-item {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.event-detail-meta i {
-  color: #3498db; /* 蓝色图标，引导视觉 */
+.detail-meta .meta-item i {
+  color: #3498db;
 }
 
-/* 详情页筹款进度（更大更醒目） */
-.event-detail-progress {
+/* 详情页筹款进度（预定义进度类，配合JS动态切换） */
+.detail-progress {
   margin: 25px 0;
 }
 
-.event-detail-progress-bar {
+.detail-progress-bar {
   height: 12px;
   background-color: #ecf0f1;
   border-radius: 6px;
-  margin-bottom: 12px;
+  overflow: hidden;
 }
 
-.event-detail-progress-text {
+.detail-progress-fill {
+  height: 100%;
+  background-color: #2ecc71;
+  border-radius: 6px;
+  transition: width 0.5s ease;
+}
+
+/* 进度百分比预定义类（覆盖0%-100%） */
+.detail-progress-fill.progress-0 { width: 0%; }
+.detail-progress-fill.progress-10 { width: 10%; }
+.detail-progress-fill.progress-20 { width: 20%; }
+.detail-progress-fill.progress-30 { width: 30%; }
+.detail-progress-fill.progress-40 { width: 40%; }
+.detail-progress-fill.progress-50 { width: 50%; }
+.detail-progress-fill.progress-60 { width: 60%; }
+.detail-progress-fill.progress-70 { width: 70%; }
+.detail-progress-fill.progress-80 { width: 80%; }
+.detail-progress-fill.progress-90 { width: 90%; }
+.detail-progress-fill.progress-100 { width: 100%; }
+
+.detail-progress-text {
   font-size: 1rem;
   font-weight: 500;
   color: #333;
@@ -500,8 +410,8 @@ img {
   justify-content: space-between;
 }
 
-/* 详情页内容区：分段展示 */
-.event-detail-content {
+/* 详情内容区 */
+.detail-content {
   background-color: #fff;
   padding: 30px;
   border-radius: 8px;
@@ -509,24 +419,32 @@ img {
   margin-bottom: 30px;
 }
 
-/* 主办方信息区 */
-.org-info {
-  background-color: #f8f9fa;
-  padding: 20px;
-  border-radius: 6px;
-  margin-top: 20px;
+.detail-desc {
+  color: #555;
+  line-height: 1.8;
+  font-size: 1rem;
 }
 
-.org-info h3 {
+/* 错误容器样式 */
+.error-container {
+  text-align: center;
+  color: #e74c3c;
+  padding: 40px 0;
+  font-size: 1rem;
+}
+
+.error-container i {
+  font-size: 2.5rem;
   margin-bottom: 15px;
+  display: block;
 }
 
-/* 注册按钮：固定在右侧，方便用户操作 */
+/* 注册按钮 */
 .register-btn {
   position: fixed;
   right: 30px;
   bottom: 30px;
-  background-color: #e74c3c; /* 红色注册按钮，强调行动点 */
+  background-color: #e74c3c;
   color: #fff;
   padding: 12px 25px;
   font-size: 1.1rem;
@@ -535,19 +453,17 @@ img {
   z-index: 90;
 }
 
-.register-btn:hover {
-  background-color: #c0392b;
-}
+.register-btn:hover { background-color: #c0392b; }
 
-/* 注册弹窗样式 */
+/* 注册弹窗 */
 .modal {
-  display: none; /* 默认隐藏 */
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* 半透明背景，遮罩页面 */
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
   justify-content: center;
   align-items: center;
@@ -563,35 +479,15 @@ img {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
-.modal-content h3 {
-  color: #2c3e50;
-  margin-bottom: 20px;
-}
-
-.modal-content p {
-  color: #555;
-  margin-bottom: 30px;
-  font-size: 1.05rem;
-}
-
 .close-modal {
   background-color: #3498db;
   color: #fff;
   width: 100%;
 }
 
-/* 移动端适配：详情页头部改为垂直排列 */
+/* 移动端适配 */
 @media (max-width: 768px) {
-  .event-detail-header {
-    grid-template-columns: 1fr;
-  }
-  .event-detail-img {
-    height: 250px;
-  }
-  .register-btn {
-    position: static;
-    width: 100%;
-    margin-top: 20px;
-  }
+  .detail-header { grid-template-columns: 1fr; }
+  .detail-img { height: 250px; }
+  .register-btn { position: static; width: 100%; margin-top: 20px; }
 }
-    

@@ -6,10 +6,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const clearBtn = document.getElementById("clear-filters");
   const dateInputEl = document.getElementById("filter-date");
 
-  // 设置日期最小值为今天
   dateInputEl.min = new Date().toISOString().split("T")[0];
 
-  // 加载活动分类
   async function loadCategories() {
     try {
       const categories = await CharityCommon.fetchApi("/categories");
@@ -20,11 +18,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         categorySelectEl.appendChild(option);
       });
     } catch (err) {
-      CharityCommon.showErrorMsg("分类加载失败，筛选功能可能受限");
+      CharityCommon.showErrorMsg("Classification loading failed. The filtering function may be restricted");
     }
   }
 
-  // 执行搜索
   formEl.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = new FormData(formEl);
@@ -33,25 +30,24 @@ document.addEventListener("DOMContentLoaded", async () => {
     resultsEl.innerHTML = `
       <div class="loading-state">
         <i class="fa fa-spinner fa-spin"></i>
-        <p>正在搜索活动...</p>
+        <p>Searching for activities...</p>
       </div>
     `;
 
     try {
       const results = await CharityCommon.fetchApi("/events/search", params);
-      countEl.textContent = `找到 ${results.length} 个符合条件的活动`;
+      countEl.textContent = `Find ${results.length} activities that meet the requirements`;
 
       if (results.length === 0) {
         resultsEl.innerHTML = `
           <div class="empty-state">
             <i class="fa fa-search"></i>
-            <p>未找到符合条件的活动，请调整筛选条件</p>
+            <p>No activities meeting the criteria were found. Please adjust the filtering conditions</p>
           </div>
         `;
         return;
       }
 
-      // 渲染搜索结果
       resultsEl.innerHTML = results.map(event => `
         <div class="event-card">
           <img src="${CharityCommon.getSafeImageUrl(event.image_url)}" alt="${event.title}" class="event-card-img">
@@ -65,11 +61,11 @@ document.addEventListener("DOMContentLoaded", async () => {
               <span><i class="fa fa-map-marker"></i> ${event.location}</span>
             </div>
             <p class="event-card-desc">${event.description}</p>
-            <div class="event-card-org">主办方：${event.org_name}</div>
+            <div class="event-card-org">sponsor：${event.org_name}</div>
             <div class="event-card-price">
-              票价：${event.ticket_price > 0 ? `¥${event.ticket_price.toFixed(2)}` : "免费"}
+              ticket rates：${event.ticket_price > 0 ? `¥${event.ticket_price.toFixed(2)}` : "free of charge"}
             </div>
-            <a href="event-detail.html?id=${event.event_id}" class="btn btn-view-detail">查看详情</a>
+            <a href="event-detail.html?id=${event.event_id}" class="btn btn-view-detail">view details</a>
           </div>
         </div>
       `).join("");
@@ -77,24 +73,22 @@ document.addEventListener("DOMContentLoaded", async () => {
       resultsEl.innerHTML = `
         <div class="error-state">
           <i class="fa fa-exclamation-triangle"></i>
-          <p>搜索失败，请稍后重试</p>
+          <p>Search failed. Please try again later</p>
         </div>
       `;
     }
   });
 
-  // 清除筛选
   clearBtn.addEventListener("click", () => {
     formEl.reset();
     resultsEl.innerHTML = `
       <div class="empty-state">
         <i class="fa fa-search-plus"></i>
-        <p>暂无筛选条件，请填写上方表单进行搜索</p>
+        <p>There are no filtering conditions at present. Please fill in the form above to conduct the search</p>
       </div>
     `;
-    countEl.textContent = "请选择筛选条件并点击“搜索活动”";
+    countEl.textContent = "Please select the filtering criteria";
   });
 
-  // 初始化加载分类
   await loadCategories();
 });

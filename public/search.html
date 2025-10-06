@@ -1,114 +1,97 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>爱心慈善活动平台 - 搜索活动</title>
-  <!-- 引入自己的个性化CSS -->
+  <title>Love Charity Event Platform - Search Events</title>
   <link rel="stylesheet" href="./css/style.css">
-  <!-- 统一图标库 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 </head>
 <body class="page-loading">
-  <!-- 导航栏（id不可修改） -->
   <div id="navbar"></div>
 
-  <!-- 1. 搜索表单区（全团队统一字段） -->
   <section class="search-form-section">
     <div class="search-form-container container">
-      <h2 class="form-title">筛选慈善活动</h2>
+      <h2 class="form-title">Filter Charity Events</h2>
       
-      <!-- 搜索表单（id不可修改，字段name不可修改） -->
       <form id="event-search-form" class="event-form">
         <div class="form-grid">
-          <!-- 日期筛选 -->
           <div class="form-group">
             <label for="filter-date" class="form-label">
-              <i class="fa fa-calendar"></i> 活动日期
+              <i class="fa fa-calendar"></i> Event Date
             </label>
             <input 
               type="date" 
               id="filter-date" 
               name="date" 
               class="form-input"
-              min="" <!-- JS动态设置最小日期为今天 -->
+              min=""
             >
           </div>
 
-          <!-- 地点筛选 -->
           <div class="form-group">
             <label for="filter-location" class="form-label">
-              <i class="fa fa-map-marker"></i> 活动地点
+              <i class="fa fa-map-marker"></i> Event Location
             </label>
             <input 
               type="text" 
               id="filter-location" 
               name="location" 
               class="form-input"
-              placeholder="输入城市、场馆名称（如“悉尼”“社区公园”）"
+              placeholder="Enter city or venue name (e.g. 'Sydney' 'Community Park')"
             >
           </div>
 
-          <!-- 分类筛选（JS动态加载选项） -->
           <div class="form-group">
             <label for="filter-category" class="form-label">
-              <i class="fa fa-tags"></i> 活动分类
+              <i class="fa fa-tags"></i> Event Category
             </label>
             <select 
               id="filter-category" 
               name="category_id" 
               class="form-select"
             >
-              <option value="">全部分类</option>
-              <!-- JS动态添加分类选项 -->
+              <option value="">All Categories</option>
             </select>
           </div>
         </div>
 
-        <!-- 按钮组（id不可修改） -->
         <div class="form-buttons">
           <button type="submit" class="btn btn-search">
-            <i class="fa fa-search"></i> 搜索活动
+            <i class="fa fa-search"></i> Search Events
           </button>
           <button type="button" id="clear-filters" class="btn btn-clear">
-            <i class="fa fa-refresh"></i> 清除筛选
+            <i class="fa fa-refresh"></i> Clear Filters
           </button>
         </div>
       </form>
 
-      <!-- 错误提示容器（id不可修改） -->
       <div id="error-msg" class="error-container"></div>
     </div>
   </section>
 
-  <!-- 2. 搜索结果区（id不可修改） -->
   <section class="search-results-section">
     <div class="results-container container">
-      <!-- 结果统计 -->
       <div class="results-header">
-        <h2 class="section-title">搜索结果</h2>
-        <p id="results-count" class="results-count">请选择筛选条件并点击“搜索活动”</p>
+        <h2 class="section-title">Search Results</h2>
+        <p id="results-count" class="results-count">Please select filters and click "Search Events"</p>
       </div>
 
-      <!-- 结果列表容器（JS动态渲染） -->
       <div id="search-results" class="events-container">
-        <!-- 初始提示 -->
         <div class="empty-state">
           <i class="fa fa-search-plus"></i>
-          <p>暂无筛选条件，请填写上方表单进行搜索</p>
+          <p>No filters selected. Please fill out the form above to search.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 页脚（与首页统一） -->
   <footer class="footer-section">
     <div class="footer-container container">
-      <p class="footer-copyright">© 2025 爱心慈善活动平台 版权所有 | 公益无界，爱心同行</p>
+      <p class="footer-copyright">© 2025 Love Charity Event Platform. All Rights Reserved | Charity Has No Borders, Walk Together with Love</p>
     </div>
   </footer>
 
-  <!-- 引入JS（顺序不可修改） -->
   <script src="./js/common.js"></script>
   <script src="./js/search.js"></script>
 </body>

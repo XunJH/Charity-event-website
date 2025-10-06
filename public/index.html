@@ -1,63 +1,53 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>爱心慈善活动平台 - 首页</title>
-  <!-- 引入自己的个性化CSS（必须放在client/css/目录下） -->
+  <title>Love Charity Event Platform - Home</title>
   <link rel="stylesheet" href="./css/style.css">
-  <!-- 可选：引入图标库（全团队统一，如Font Awesome） -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 </head>
 <body class="page-loading">
-  <!-- 导航栏（由common.js渲染，id不可修改） -->
   <div id="navbar"></div>
 
-  <!-- 1. 静态英雄区（平台介绍，全团队统一结构） -->
   <section class="hero-section">
     <div class="hero-container container">
       <div class="hero-content">
-        <h1 class="hero-title">让每一份爱心，都能传递力量</h1>
+        <h1 class="hero-title">Let Every Act of Kindness Transmit Power</h1>
         <p class="hero-desc">
-          我们汇聚各类慈善活动，涵盖医疗救助、环境保护、老人关怀等领域，
-          助力公益组织与爱心人士建立连接，共同推动社会美好发展。
+          We bring together various charity events covering medical assistance, environmental protection, elderly care and other fields.
+          We help connect public welfare organizations with caring individuals to jointly promote the positive development of society.
         </p>
         <div class="hero-contact">
-          <p><i class="fa fa-envelope"></i> 官方邮箱：contact@charityplatform.org</p>
-          <p><i class="fa fa-phone"></i> 咨询电话：400-123-4567</p>
+          <p><i class="fa fa-envelope"></i> Official Email: contact@charityplatform.org</p>
+          <p><i class="fa fa-phone"></i> Inquiry Hotline: 400-123-4567</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 2. 动态活动列表区（API加载，id不可修改） -->
   <section class="events-section">
     <div class="container">
-      <!-- 标题与错误提示 -->
       <div class="section-header">
-        <h2 class="section-title">即将举办的慈善活动</h2>
-        <div id="error-msg" class="error-container"></div> <!-- 错误提示容器 -->
+        <h2 class="section-title">Upcoming Charity Events</h2>
+        <div id="error-msg" class="error-container"></div>
       </div>
 
-      <!-- 活动列表容器（JS动态渲染） -->
       <div id="events-list" class="events-container">
-        <!-- 加载中提示（初始显示） -->
         <div class="loading-state">
           <i class="fa fa-spinner fa-spin"></i>
-          <p>正在加载活动数据...</p>
+          <p>Loading event data...</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 3. 页脚（全团队统一结构） -->
   <footer class="footer-section">
     <div class="footer-container container">
-      <p class="footer-copyright">© 2025 爱心慈善活动平台 版权所有 | 公益无界，爱心同行</p>
+      <p class="footer-copyright">© 2025 Love Charity Event Platform. All Rights Reserved | Charity Has No Borders, Walk Together with Love</p>
     </div>
   </footer>
 
-  <!-- 引入JS（顺序不可修改：先公共，后页面逻辑） -->
   <script src="./js/common.js"></script>
   <script src="./js/home.js"></script>
 </body>
