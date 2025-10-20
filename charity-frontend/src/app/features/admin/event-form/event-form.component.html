@@ -1,0 +1,46 @@
+<div class="modal-backdrop" (click)="close()"></div>
+<div class="modal">
+  <div class="modal-header">
+    <h2>{{ isEdit ? '编辑活动' : '新增活动' }}</h2>
+    <button class="close-btn" (click)="close()">&times;</button>
+  </div>
+
+  <form class="modal-body" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>活动标题</label>
+      <input type="text" [(ngModel)]="event.title" name="title" required>
+    </div>
+
+    <div class="form-group">
+      <label>活动日期</label>
+      <input type="date" [(ngModel)]="event.event_date" name="event_date" required>
+    </div>
+
+    <div class="form-group">
+      <label>活动地点</label>
+      <input type="text" [(ngModel)]="event.location" name="location" required>
+    </div>
+
+    <div class="form-group">
+      <label>目标金额</label>
+      <input type="number" [(ngModel)]="event.goal_amount" name="goal_amount" required>
+    </div>
+
+    <div class="form-group">
+      <label>活动分类</label>
+      <select [(ngModel)]="event.category_id" name="category_id" required>
+        <option *ngFor="let c of categories" [value]="c.id">{{ c.name }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>活动描述</label>
+      <textarea [(ngModel)]="event.description" name="description" rows="4"></textarea>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn cancel" (click)="close()">取消</button>
+      <button type="submit" class="btn save">保存</button>
+    </div>
+  </form>
+</div>

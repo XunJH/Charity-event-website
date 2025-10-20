@@ -1,0 +1,24 @@
+<div class="hero">让教育点亮希望 — 支持孩子的未来</div>
+<main class="container">
+  <section>
+    <h2>推荐活动</h2>
+    <div id="events" class="grid">
+      <div *ngIf="events.length === 0">
+        <p>当前没有活动。</p>
+      </div>
+      <div *ngFor="let e of events; let idx = index" class="card">
+        <img [src]="'assets/images/event' + ((idx % 8) + 1) + '.jpg'" alt="{{ e.title }}">
+        <div class="card-body">
+          <div class="card-title">{{ e.title }}</div>
+          <div class="meta">
+            📍 {{ e.location }} · 📅 {{ e.event_date }} · {{ e.category_name }}
+          </div>
+          <div class="progress-wrap">
+            <div class="progress" [style.width]="getProgress(e.raised_amount, e.goal_amount) + '%'"></div>
+          </div>
+          <a class="btn-inline" [routerLink]="['/event', e.id]">查看详情</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

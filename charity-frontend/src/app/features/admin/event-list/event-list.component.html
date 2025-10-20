@@ -1,0 +1,47 @@
+<p>event-list works!</p>
+<div class="admin-container">
+  <div class="header">
+    <h1>活动管理</h1>
+    <button class="btn add-btn" (click)="openAddForm()">+ 新增活动</button>
+  </div>
+
+  <!-- 活动列表 -->
+  <table class="event-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>标题</th>
+        <th>日期</th>
+        <th>地点</th>
+        <th>目标金额</th>
+        <th>分类</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let event of events">
+        <td>{{ event.id }}</td>
+        <td>{{ event.title }}</td>
+        <td>{{ event.event_date | date:'yyyy-MM-dd' }}</td>
+        <td>{{ event.location }}</td>
+        <td>{{ event.goal_amount | currency:'CNY' }}</td>
+        <td>{{ event.category_name }}</td>
+        <td class="actions">
+          <button (click)="openEditForm(event)">编辑</button>
+          <button class="delete-btn" (click)="deleteEvent(event.id)">删除</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 新增/编辑活动弹窗 -->
+  <app-event-form
+    *ngIf="formVisible"
+    [isVisible]="formVisible"
+    [isEdit]="isEdit"
+    [event]="currentEvent"
+    [categories]="categories"
+    (closeModal)="closeForm()"
+    (saveSuccess)="refreshEvents()">
+  </app-event-form>
+</div>

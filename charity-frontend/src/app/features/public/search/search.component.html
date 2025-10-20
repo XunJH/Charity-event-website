@@ -1,0 +1,28 @@
+<main class="container">
+  <div class="search-bar" style="margin-bottom:18px">
+    <input type="date" [(ngModel)]="date">
+    <input type="text" [(ngModel)]="location" placeholder="输入地点（如：成都市）">
+    <select [(ngModel)]="categoryId">
+      <option value="">全部类别</option>
+      <option *ngFor="let c of categories" [value]="c.id">{{ c.name }}</option>
+    </select>
+    <button id="searchBtn" (click)="doSearch()">搜索</button>
+    <button id="clearBtn" style="background:#ddd;color:#333" (click)="clearSearch()">清除</button>
+  </div>
+  <section>
+    <div id="results" class="grid">
+      <p *ngIf="events.length === 0 && (date || location || categoryId)">未找到匹配的活动。</p>
+      <div *ngFor="let e of events; let idx = index" class="card">
+        <img [src]="'assets/images/event' + ((idx % 8) + 1) + '.jpg'">
+        <div class="card-body">
+          <div class="card-title">{{ e.title }}</div>
+          <div class="meta">📍 {{ e.location }} · 📅 {{ e.event_date }}</div>
+          <div class="progress-wrap">
+            <div class="progress" [style.width]="getProgress(e.raised_amount, e.goal_amount) + '%'"></div>
+          </div>
+          <a class="btn-inline" [routerLink]="['/event', e.id]">查看详情</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,56 @@
+<main class="container" id="detail-area">
+  <div *ngIf="loading">加载中...</div>
+  <div *ngIf="!event && !loading">未找到该活动。</div>
+
+  <div *ngIf="event && !loading">
+    <div class="card">
+      <!-- 活动基本信息（不变） -->
+      <img [src]="'assets/images/event' + ((event.id % 8) || 8) + '.jpg'" alt="活动图片">
+      <div class="card-body">
+        <h2>{{ event.title }}</h2>
+        <p class="meta">
+          📍 {{ event.location }} · 📅 {{ event.event_date }} · 类别: {{ event.category_name }}
+        </p>
+        <div class="progress-wrap">
+          <div class="progress" [style.width]="getProgress(event.raised_amount, event.goal_amount) + '%'"></div>
+        </div>
+        <p>筹款目标：¥{{ event.goal_amount.toLocaleString() }}</p>
+        <p>已筹金额：¥{{ event.raised_amount.toLocaleString() }}</p>
+        <p style="margin-top:12px;">{{ event.description || '这是活动介绍段落，展示活动目的与安排。' }}</p>
+        <button class="btn-inline" style="margin-top:10px" (click)="goToRegistration()">立即参与</button>
+      </div>
+    </div>
+
+    <!-- 报名列表（修改部分） -->
+    <div style="margin-top: 20px;">
+      <!-- 使用从报名接口获取的 registrationsList 和 registrationsCount -->
+      <h3>已报名列表（{{ registrationsCount }}人）</h3>
+      
+      <!-- 显示报名列表（使用 registrationsList 而非 event.registrations） -->
+      <table *ngIf="registrationsList.length > 0">
+        <thead>
+          <tr>
+            <th>姓名</th>
+            <th>邮箱</th>
+            <th>电话</th>
+            <th>购票数量</th>
+            <th>报名时间</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reg of registrationsList">
+            <td>{{ reg.user_name }}</td>
+            <td>{{ reg.email }}</td>
+            <td>{{ reg.phone }}</td>
+            <td>{{ reg.tickets }}</td>
+            <!-- 格式化日期显示（可选） -->
+            <td>{{ reg.registration_date | date:'yyyy-MM-dd HH:mm' }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 没有报名记录时显示 -->
+      <p *ngIf="registrationsCount === 0">暂无报名记录</p>
+    </div>
+  </div>
+</main>
